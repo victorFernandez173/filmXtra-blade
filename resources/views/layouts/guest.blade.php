@@ -15,7 +15,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="font-sans text-gray-900 antialiased">
-<div class="h-[100vh] bg-cover bg-[url('{{asset("/images/posters-fondo.png")}}')]">
+<div class="h-[100vh] bg-cover bg-posters-fondo">
     <div>
         <a href="/">
             <x-application-logo class="w-20 h-20 fill-current text-gray-500" />

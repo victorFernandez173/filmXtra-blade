@@ -29,6 +29,9 @@ export default {
                 '6': '6px',
                 '8': '8px',
             },
+            backgroundImage: {
+                'posters-fondo': "url('http://localhost:8000/images/posters-fondo.png')",
+            }
         },
     },
 
