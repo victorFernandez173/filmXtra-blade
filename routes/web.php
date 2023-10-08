@@ -29,7 +29,7 @@ require __DIR__.'/auth.php';
 
 // TODO carResetPassword en authenticatedSessionController estudiar
 // TODO laracasts y curso profesional laravel youtube
-// TODO nuevo sistema de componentes x- estudiar viabilidad junto con la clase GuestLayout.php
+// TODO nuevo sistema de componentes x- estudiar viabilidad junto con la clase GuestLayout.php.
 // TODO installar los LIBRERÍAS NECESARIAS EN EL PROYECTO
 // TODO metodo buscarTitulo() eliminado de BienvenidaController, para el campo de busqueda, reañadir/configurar
 // TODO en la pagina de usuario se debería esconder el bloque de contraseña para cuentas o'auth
