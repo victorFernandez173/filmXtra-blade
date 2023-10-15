@@ -27,10 +27,14 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+// TODO terminar login: recuerdame como funciona?, vistas de olvidaste contraseña y registrarse empezar a mostrarlas
+// TODO generar inserts sin procedures
 // TODO carResetPassword en authenticatedSessionController estudiar
+
+
+
+
 // TODO laracasts y curso profesional laravel youtube
-// TODO nuevo sistema de componentes x- estudiar viabilidad junto con la clase GuestLayout.php
-// TODO installar los LIBRERÍAS NECESARIAS EN EL PROYECTO
 // TODO metodo buscarTitulo() eliminado de BienvenidaController, para el campo de busqueda, reañadir/configurar
 // TODO en la pagina de usuario se debería esconder el bloque de contraseña para cuentas o'auth
 // TODO al modificar la ruta de una obra, solo añadiendo caracteres en el trozo del titulo, se intenta acceder a esa obra pero claro, NO EXISTE y da un error de array[0] nulo porque claro no hay obra ESTUDIAR

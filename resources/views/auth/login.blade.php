@@ -16,22 +16,26 @@
             </div>
 
             {{--Formulario--}}
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+            <div class="w-full sm:max-w-md mt-6 px-3 py-3 bg-white shadow-md overflow-hidden sm:rounded-lg">
                     <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                         <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
                             Inicia sesión con tu cuenta
                         </h1>
                         <form class="space-y-4 md:space-y-6" method="POST" action="{{ route('login') }}">
                             @csrf
+
+                            {{--correo eléctronico--}}
                             <div>
-                                <x-input-label for="email" :value="__('Email')"
+                                <x-input-label for="email" :value="__('Correo electrónico')"
                                             class="block mb-2 text-sm font-medium text-gray-900"/>
                                 <x-text-input id="email" class="block mt-1 w-full" type="email" name="email"
                                               :value="old('email')" required autofocus autocomplete="username"/>
                                 <x-input-error :messages="$errors->get('email')" class="mt-2"/>
                             </div>
+
+                            {{--contraseña--}}
                             <div>
-                                <x-input-label for="password" :value="__('Password')"/>
+                                <x-input-label for="password" :value="__('Contraseña')"/>
 
                                 <x-text-input id="password" class="block mt-1 w-full"
                                               type="password"
@@ -40,32 +44,38 @@
 
                                 <x-input-error :messages="$errors->get('password')" class="mt-2"/>
                             </div>
+
+                            {{--bloque recuérdame y contraseña olvidada--}}
                             <div class="flex items-center justify-between">
-                                <div class="block mt-4">
-                                    <label for="remember_me" class="inline-flex items-center">
+                                {{--recúerdame--}}
+                                <div>
+                                    <label for="remember_me" class="block items-center">
                                         <input id="remember_me" type="checkbox"
-                                               class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500"
+                                               class="rounded border-gray-300  text-flamingo shadow-sm focus:ring-flamingo"
                                                name="remember">
-                                        <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                                        <span class="ml-2 text-sm text-gray-600 hover:text-flamingo">{{ __('Recuérdame') }}</span>
                                     </label>
                                 </div>
-
-                                @if (Route::has('password.request'))
-                                    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                                       href="{{ route('password.request') }}">
-                                        {{ __('Forgot your password?') }}
-                                    </a>
-                                @endif
+                                {{--contraseña olvidada--}}
+                                <div>
+                                    @if (Route::has('password.request'))
+                                        <a class="text-sm text-gray-600 hover:text-flamingo rounded-md focus:outline-none active:text-gray-700"
+                                           href="{{ route('password.request') }}">
+                                            {{ __('¿Has olvidado tú contraseña?') }}
+                                        </a>
+                                    @endif
+                                </div>
                             </div>
 
-                            <x-primary-button class="ml-3">
-                                {{ __('Log in') }}
+                            {{--botón principal--}}
+                            <x-primary-button class="w-full">
+                                {{ __('Loguearme') }}
                             </x-primary-button>
 
                             <div class="flex justify-around">
                                 <!--Iniciar sesion Github-->
                                 <a href="{{route('auth.github')}}" type="button"
-                                   class="text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30">
+                                   class="text-white bg-gray-900 hover:bg-flamingo hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center">
                                     <svg class="w-4 h-4 mr-2 -ml-1" aria-hidden="true" focusable="false"
                                          data-prefix="fab" data-icon="github" role="img"
                                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
@@ -76,7 +86,7 @@
                                 </a>
                                 <!--Iniciar sesion Google-->
                                 <a href="{{route('auth.google')}}" type="button"
-                                   class="text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55">
+                                   class="text-white bg-[#4285F4] hover:bg-flamingo hover:font-extrabold hover:text-[#4285F4] focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center">
                                     <svg class="w-4 h-4 mr-2 -ml-1" aria-hidden="true" focusable="false"
                                          data-prefix="fab" data-icon="google" role="img"
                                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
@@ -88,7 +98,7 @@
                             </div>
                             <p class="text-sm font-light text-gray-500">
                                 ¿Aún no tienes cuenta?
-                                <a href="{{route('register')}}" class="font-medium text-primary-600 hover:underline">
+                                <a href="{{route('register')}}" class="font-medium text-primary-600 hover:text-flamingo">
                                 ¡Regístrate aquí!</a>
                             </p>
                         </form>
