@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-// TODO terminar login: recuerdame como funciona?, vistas de olvidaste contraseña y registrarse empezar a mostrarlas
+// TODO terminar login:  reconfirmar que funciona google y github; recuerdame como funciona?;  vistas de olvidaste contraseña y registrarse empezar a mostrarlas
 // TODO generar inserts sin procedures
 // TODO carResetPassword en authenticatedSessionController estudiar
 
