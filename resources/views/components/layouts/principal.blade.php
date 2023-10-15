@@ -10,7 +10,7 @@
 
     {{-- Título --}}
     <title>
-        @yield('titulo')
+        {{ $titulo ?? config('APP_NAME') }}
     </title>
 
     {{-- Icon title --}}
@@ -32,13 +32,13 @@
 <body>
 
 {{-- Navbar --}}
-@include('components.navbar')
+<x-navbar></x-navbar>
 
 {{-- Contenido --}}
-@yield('contenido')
+{{ $slot }}
 
 {{-- Footer --}}
-@include('components.footer')
+<x-footer></x-footer>
 
 </body>
 </html>
