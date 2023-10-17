@@ -39,7 +39,7 @@
         </div>
 
         {{--Botón cuenta usuario--}}
-        <div class="flex items-center md:order-3 font-bold">
+        <div class="flex items-center md:order-3 font-bold ">
             <button type="button"
                     class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-flamingo focus:ring-4 hover:ring-4 hover:ring-flamingo focus:flamingo"
                     id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
@@ -49,7 +49,7 @@
             </button>
             <!-- Dropdown menu -->
             <div
-                class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
+                class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-300 rounded-lg shadow-2xl"
                 id="user-dropdown">
                 <div class="px-4 py-3">
                     @if (! auth()->check())
