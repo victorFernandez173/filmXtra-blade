@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-// TODO terminar login:  'recuerdame' checkbox como funciona?;  vistas olvidaste contraseña y registrarse; validación por email
+// TODO terminar login:  'recuerdame' checkbox como funciona?;  vistas olvidaste contraseña y registrarse; validación por email; y validación del formulario; livewire
 // TODO generar inserts sin procedures
 // TODO carResetPassword en authenticatedSessionController estudiar
 
