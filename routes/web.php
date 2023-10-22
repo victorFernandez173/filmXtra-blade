@@ -27,6 +27,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+// TODO These credentials do not match our records. Mensajeeeeeeeee
 // TODO terminar login:  'recuerdame' checkbox como funciona?; livewire;
 // TODO  olvidaste contraseña y registrarse; basicamente todo el sistema de logueo y control de usuarios
 // TODO carResetPassword en authenticatedSessionController estudiar
