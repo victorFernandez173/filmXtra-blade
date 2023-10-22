@@ -6553,13 +6553,11 @@ VALUES (1, 1),
        (37, 160),
        (37, 162),
        (37, 164),
-       (37, 166)
-;
+       (37, 166);
 
-
-
-/* INSERTS PARA POSTERS */
-/* Procedimiento para insertar ids existentes de obras en posters */
+/*
+INSERTS PARA POSTERS
+Procedimiento para insertar ids existentes de obras en posters
 delimiter //
 CREATE PROCEDURE ides()
 BEGIN
@@ -6583,27 +6581,27 @@ delimiter ;
 call ides();
 drop procedure ides;
 
-/* Procedimiento para modificacion de campos ruta y alt */
+Procedimiento para modificacion de campos ruta y alt
 delimiter //
 CREATE PROCEDURE miReemplazo()
 BEGIN
     DECLARE done INT DEFAULT FALSE;
-/* Variables que vamos a manejar en el procedimiento */
+Variables que vamos a manejar en el procedimiento
     DECLARE id_temp INT;
     DECLARE modificar_temp CHAR(255);
-    /* No utilizada pero ej. por si se quiere usar en las modificaciones */
-/* Cursor con la consulta para obtener campos necesarios para modificar de la tabla */
+    No utilizada pero ej. por si se quiere usar en las modificaciones
+    Cursor con la consulta para obtener campos necesarios para modificar de la tabla
     DECLARE c CURSOR FOR SELECT obra_id, ruta FROM posters;
     DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
     OPEN c;
     c_loop:
     LOOP
-        /* Asignamos a la variables los valores obtenidos del cursor */
+        Asignamos a la variables los valores obtenidos del cursor
         FETCH c INTO id_temp, modificar_temp;
         IF done THEN
             LEAVE c_loop;
         END IF;
-/* Aplicamos modificaciones */
+Aplicamos modificaciones
         update posters set ruta = (select titulo_original from obras where id = id_temp) where id_temp = obra_id;
         update posters set ruta = replace(ruta, ' ', '_') where id_temp = obra_id;
         update posters set ruta = replace(ruta, ':', '') where id_temp = obra_id;
@@ -6621,7 +6619,92 @@ END;
 delimiter ;
 call miReemplazo();
 drop procedure miReemplazo;
+*/
 
+
+INSERT INTO filmxtra_blade.posters (obra_id, ruta, alt, creado, modificado) VALUES (21, 'Alien_3.png', 'Poster de \'Alien 3\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (19, 'Alien.png', 'Poster de \'Alien\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (20, 'Aliens.png', 'Poster de \'Aliens\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (33, 'Le_fabuleux_destin_d_Amelie_Poulain.png', 'Poster de \'Le fabuleux destin d\'Amelie Poulain\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (31, 'American_Beauty.png', 'Poster de \'American Beauty\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (65, 'The_Great_Train_Robbery.png', 'Poster de \'The Great Train Robbery\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (3, 'Batman_Begins.png', 'Poster de \'Batman Begins\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (1, 'The_Shawshank_Redemption.png', 'Poster de \'The Shawshank Redemption\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (73, 'Casablanca.png', 'Poster de \'Casablanca\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (17, 'Nuovo_Cinema_Paradiso.png', 'Poster de \'Nuovo Cinema Paradiso\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (72, 'Citizen_Kane.png', 'Poster de \'Citizen Kane\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (66, 'Bronenosets_Potyomkin.png', 'Poster de \'Bronenosets Potyomkin\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (79, 'Il_buono_il_brutto_il_cattivo.png', 'Poster de \'Il buono, il brutto, il cattivo\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (4, 'The_Dark_Knight.png', 'Poster de \'The Dark Knight\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (5, 'The_Dark_Knight_Rises.png', 'Poster de \'The Dark Knight Rises\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (10, 'Fight_Club.png', 'Poster de \'Fight Club\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (64, 'Das_Cabinet_des_Dr_Caligari.png', 'Poster de \'Das Cabinet des Dr. Caligari\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (70, 'The_Wizard_of_Oz.png', 'Poster de \'The Wizard of Oz\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (2, 'The_Godfather.png', 'Poster de \'The Godfather\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (22, 'The_Godfather_Part_II.png', 'Poster de \'The Godfather Part II\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (23, 'The_Godfather_Part_III.png', 'Poster de \'The Godfather Part III\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (34, 'The_Pianist.png', 'Poster de \'The Pianist\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (8, 'The_Lord_of_the_Rings_The_Return_of_the_King.png', 'Poster de \'The Lord of the Rings: The Return of the King\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (6, 'The_Lord_of_the_Rings_The_Fellowship_of_the_Ring.png', 'Poster de \'The Lord of the Rings: The Fellowship of the Ring\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (7, 'The_Lord_of_the_Rings_The_Two_Towers.png', 'Poster de \'The Lord of the Rings: The Two Towers\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (32, 'The_Sixth_Sense.png', 'Poster de \'The Sixth Sense\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (26, 'The_Silence_of_the_Lambs.png', 'Poster de \'The Silence of the Lambs\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (53, 'Indiana_Jones_Raiders_of_the_Lost_Ark.png', 'Poster de \'Indiana Jones: Raiders of the Lost Ark\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (83, 'Spartacus.png', 'Poster de \'Spartacus\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (11, 'Forrest_Gump.png', 'Poster de \'Forrest Gump\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (16, 'Gladiator.png', 'Poster de \'Gladiator\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (37, 'Gran_Torino.png', 'Poster de \'Gran Torino\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (52, 'Solo_A_Star_Wars_Story.png', 'Poster de \'Solo: A Star Wars Story\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (27, 'Hannibal.png', 'Poster de \'Hannibal\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (59, 'Harry_Potter_and_the_Goblet_of_Fire_(Harry_Potter_4).png', 'Poster de \'Harry Potter and the Goblet of Fire (Harry Potter 4)\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (61, 'Harry_Potter_and_the_Half-Blood_Prince_(Harry_Potter_6).png', 'Poster de \'Harry Potter and the Half-Blood Prince (Harry Potter 6)\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (58, 'Harry_Potter_and_the_Prisoner_of_Azkaban_(Harry_Potter_3).png', 'Poster de \'Harry Potter and the Prisoner of Azkaban (Harry Potter 3)\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (57, 'Harry_Potter_and_the_Chamber_of_Secrets_(Harry_Potter_2).png', 'Poster de \'Harry Potter and the Chamber of Secrets (Harry Potter 2)\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (60, 'Harry_Potter_and_the_Order_of_the_Phoenix_(Harry_Potter_5).png', 'Poster de \'Harry Potter and the Order of the Phoenix (Harry Potter 5)\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (38, 'Harry_Potter_and_the_Sorcerer_s_Stone.png', 'Poster de \'Harry Potter and the Sorcerer\'s Stone\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (62, 'Harry_Potter_and_the_Deathly_Hallows_Part_I.png', 'Poster de \'Harry Potter and the Deathly Hallows: Part I\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (63, 'Harry_Potter_and_the_Deathly_Hallows_Part_II.png', 'Poster de \'Harry Potter and the Deathly Hallows: Part II\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (56, 'Indiana_Jones_and_the_Kingdom_of_the_Crystal_Skull_(Indiana_Jones_4).png', 'Poster de \'Indiana Jones and the Kingdom of the Crystal Skull (Indiana Jones 4)\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (54, 'Indiana_Jones_and_the_Temple_of_Doom.png', 'Poster de \'Indiana Jones and the Temple of Doom\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (55, 'Indiana_Jones_and_the_Last_Crusade.png', 'Poster de \'Indiana Jones and the Last Crusade\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (74, 'Ivan_Groznyy_I.png', 'Poster de \'Ivan Groznyy I\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (75, 'Ivan_Groznyy_II_Boyarsky_zagovor.png', 'Poster de \'Ivan Groznyy II: Boyarsky zagovor\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (18, 'Joker.png', 'Poster de \'Joker\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (24, 'Kill_Bill_Volume_1.png', 'Poster de \'Kill Bill: Volume 1\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (25, 'Kill_Bill_Volume_2.png', 'Poster de \'Kill Bill: Volume 2\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (45, 'Star_Wars_Episode_I_The_Phantom_Menace.png', 'Poster de \'Star Wars. Episode I: The Phantom Menace\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (46, 'Star_Wars_Episode_II_Attack_of_the_Clones.png', 'Poster de \'Star Wars. Episode II: Attack of the Clones\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (47, 'Star_Wars_Episode_III_Revenge_of_the_Sith.png', 'Poster de \'Star Wars. Episode III: Revenge of the Sith\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (42, 'Star_Wars.png', 'Poster de \'Star Wars\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (43, 'Star_Wars_Episode_V_The_Empire_Strikes_Back.png', 'Poster de \'Star Wars. Episode V: The Empire Strikes Back\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (44, 'Star_Wars_Episode_VI_Return_of_the_Jedi.png', 'Poster de \'Star Wars. Episode VI: Return of the Jedi\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (77, 'On_the_Waterfront.png', 'Poster de \'On the Waterfront\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (15, 'The_Green_Mile.png', 'Poster de \'The Green Mile\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (80, 'Per_qualche_dollaro_in_più.png', 'Poster de \'Per qualche dollaro in più\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (82, 'A_Clockwork_Orange.png', 'Poster de \'A Clockwork Orange\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (78, 'Lawrence_of_Arabia.png', 'Poster de \'Lawrence of Arabia\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (71, 'Gone_with_the_Wind.png', 'Poster de \'Gone with the Wind\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (35, 'Los_Otros(The_Others).png', 'Poster de \'Los Otros(The Others)\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (40, 'Mad_Max_2_The_Road_Warrior.png', 'Poster de \'Mad Max 2: The Road Warrior\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (41, 'Mad_Max_Beyond_Thunderdome.png', 'Poster de \'Mad Max Beyond Thunderdome\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (39, 'Mad_Max.png', 'Poster de \'Mad Max\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (12, 'The_Matrix.png', 'Poster de \'The Matrix\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (13, 'The_Matrix_Reloaded.png', 'Poster de \'The Matrix Reloaded\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (14, 'The_Matrix_Revolutions.png', 'Poster de \'The Matrix Revolutions\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (36, 'Memento.png', 'Poster de \'Memento\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (30, 'Million_Dollar_Baby.png', 'Poster de \'Million Dollar Baby\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (69, 'Olympia_(Parts_1_&_2).png', 'Poster de \'Olympia (Parts 1 & 2)\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (81, 'Per_un_pugno_di_dollari.png', 'Poster de \'Per un pugno di dollari\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (9, 'Pulp_Fiction.png', 'Poster de \'Pulp Fiction\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (76, 'Rashomon.png', 'Poster de \'Rashomon\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (48, 'Rogue_One_A_Star_Wars_Story.png', 'Poster de \'Rogue One: A Star Wars Story\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (28, 'Seven_(Se7en).png', 'Poster de \'Seven (Se7en)\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (68, 'Duck_Soup.png', 'Poster de \'Duck Soup\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (51, 'Star_Wars_The_Rise_of_Skywalker.png', 'Poster de \'Star Wars: The Rise of Skywalker\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (49, 'Star_Wars_Episode_VII_The_Force_Awakens.png', 'Poster de \'Star Wars. Episode VII: The Force Awakens\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (50, 'Star_Wars_The_Last_Jedi.png', 'Poster de \'Star Wars: The Last Jedi\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (29, 'Trainspotting.png', 'Poster de \'Trainspotting\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39'),
+ (67, 'Un_chien_andalou.png', 'Poster de \'Un chien andalou\'', '2023-10-08 19:03:39', '2023-10-08 19:03:39');
 
 
 insert into actor_obra (obra_id, actor_id)

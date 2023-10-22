@@ -139,19 +139,24 @@ CREATE TABLE `profesionals` (
   CONSTRAINT `profesionals_obra_id_foreign` FOREIGN KEY (`obra_id`) REFERENCES `obras` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-create table secuelas
-(
-    obra_id    bigint unsigned                        not null,
-    orden      int unsigned default '0'               not null,
-    saga       varchar(255)                           not null,
-    creada     timestamp    default CURRENT_TIMESTAMP not null,
-    modificada timestamp    default CURRENT_TIMESTAMP not null,
-    constraint secuelas_obra_id_orden_unique
-        unique (obra_id, orden),
-    constraint secuelas_obra_id_foreign
-        foreign key (obra_id) references filmxtraVic.obras (id)
-)
-    collate = utf8mb4_unicode_ci;
+CREATE TABLE `secuelas` (
+  `obra_id` bigint unsigned NOT NULL,
+  `orden` int unsigned NOT NULL DEFAULT '0',
+  `saga` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `creada` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modificada` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE KEY `secuelas_obra_id_orden_unique` (`obra_id`,`orden`),
+  CONSTRAINT `secuelas_obra_id_foreign` FOREIGN KEY (`obra_id`) REFERENCES `obras` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `trailers` (
+  `obra_id` bigint unsigned NOT NULL,
+  `trailers` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `creado` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modificado` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`obra_id`),
+  CONSTRAINT `trailers_obra_id_foreign` FOREIGN KEY (`obra_id`) REFERENCES `obras` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
 CREATE TABLE `criticas` (
