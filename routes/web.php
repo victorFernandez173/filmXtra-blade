@@ -28,7 +28,7 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
-// TODO terminar login: livewire;
+// TODO terminar login: livewire; nombre con logueo de github no se ve en drop menu
 // TODO  olvidaste contraseña y registrarse; basicamente todo el sistema de logueo y control de usuarios verificacion de email incluida
 // TODO carResetPassword en authenticatedSessionController estudiar
 
