@@ -3,6 +3,7 @@
 use App\Models\Obra;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -17,7 +18,7 @@ return new class extends Migration
             $table->string('titulo', 200)->nullable(false)->unique();
             $table->string('titulo_original', 200)->nullable(false);
             $table->string('pais', 60)->nullable(false);
-            $table->decimal('duracion', 3, 0, true)->nullable(false);
+            $table->decimal('duracion', 3, 0)->nullable(false);
             $table->string('sinopsis', 2500)->nullable(false);
             $table->year('fecha')->nullable(false);
             $table->string('productora', 255)->nullable(false)->default('-');
@@ -29,6 +30,8 @@ return new class extends Migration
             $table->charset = 'utf8mb4';
             $table->collation = 'utf8mb4_unicode_ci';
         });
+        // Constraint check
+        DB::statement('ALTER TABLE obras ADD CONSTRAINT duracion CHECK (duracion > 0);');
     }
 
     /**
