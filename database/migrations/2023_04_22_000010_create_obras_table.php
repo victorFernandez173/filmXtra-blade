@@ -30,8 +30,6 @@ return new class extends Migration
             $table->charset = 'utf8mb4';
             $table->collation = 'utf8mb4_unicode_ci';
         });
-        // Constraint check
-        DB::statement('ALTER TABLE obras ADD CONSTRAINT duracion CHECK (duracion > 0);');
     }
 
     /**

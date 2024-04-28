@@ -1,8 +1,3 @@
-DROP DATABASE IF EXISTS filmxtra;
-CREATE DATABASE filmxtra;
-
-USE filmxtra;
-
 create table actors
 (
     id          bigint unsigned auto_increment
